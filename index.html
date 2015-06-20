@@ -1,11 +1,173 @@
 <!DOCTYPE html>
-<html>
+<html lang="de">
 	<head>
-		<title>AntVickl0r.github.io</title>
+		<meta charset="iso-8859-1">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Die 3 Meta-Tags oben *müssen* zuerst im head stehen; jeglicher sonstiger head-Inhalt muss *nach* diesen Tags kommen -->
+		<title>AntVickl0r</title>
+
+		<!-- Bootstrap -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+
+		<!-- Unterstützung für Media Queries und HTML5-Elemente in IE8 über HTML5 shim und Respond.js -->
+		<!-- ACHTUNG: Respond.js funktioniert nicht, wenn du die Seite über file:// aufrufst -->
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	
+		<!-- jQuery (wird für Bootstrap JavaScript-Plugins benötigt) -->
+		<script src="js/jquery-2.1.4.js"></script>
+	
+	<script type="text/javascript">
+		$(document).ready(function(){
+			
+			if(window.location.hash) {
+				scrollto(window.location.hash, -102);
+			}
+			
+			$("#btn_home").click(function(event){
+				event.preventDefault();
+				$('html, body').animate({
+					scrollTop: (0)
+				}, 'slow');
+			});
+			
+			$("a[href*=#]").click(function(event){
+				event.preventDefault();
+				var href = $(this).attr("href");
+				//
+				if(href.length > 1 && href.substring(0,1) == "#")
+				{
+					//alert(href);
+					//50 + 24 + 20 + 8
+					scrollto(href, -102);
+				}
+				
+			});
+			
+			$("#close_jumbotron_home").click(function(){
+				$("#jumbotron_home").slideUp();
+			});
+		});
+		function scrollto(element, offset){
+			if(typeof offset === "undefined"){
+				offset = 0;
+			}
+			$('html, body').animate({
+				scrollTop: ($(element).offset().top + offset)
+			}, 'slow');
+		};
+	</script>
+	
 	</head>
 	<body>
-		<h1>Hello World</h1>
-		<p>I'm hosted with GitHub Pages.</p>
-		<p>Changes will be made =)</p>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<!-- Titel und Schalter werden für eine bessere mobile Ansicht zusammengefasst -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a id="btn_home" class="navbar-brand" href="./">AntVickl0r <span aria-hidden="true" class="glyphicon glyphicon-leaf"></span></a>
+			</div>
+
+			<!-- Alle Navigationslinks, Formulare und anderer Inhalt werden hier zusammengefasst und können dann ein- und ausgeblendet werden -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<!--li class="active"><a href="#">Link <span class="sr-only">(aktuell)</span></a></li-->
+					<li><a href="#about">about</a></li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">projects <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a target="_blank" href="https://github.com/AntVickl0r/PictureResize">PictureResize</a></li>
+							<li><a target="_blank" href="https://github.com/AntVickl0r/suck">suck</a></li>
+							<!--li role="separator" class="divider"></li-->
+						</ul>
+					</li>
+				</ul>
+				<!--form class="navbar-form navbar-left" role="search">
+				<div class="form-group">
+					<input type="text" class="form-control" placeholder="search">
+				</div>
+				<button type="submit" class="btn btn-default">go</button>
+				</form-->
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#impressum">Impressum</a></li>
+					<!--li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">contact <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><div id="contact_box" class="well well-sm">
+								<p style="font-weight:bold;">Tomorrow Graphics</p>
+								<p>GM Michael Klupsch</p>
+								<p>Walter-Kemper-Str. 2</br>
+								31553 Sachsenhagen</p>
+								<p style="font-weight:bold;">GERMANY</p>
+								<p><a href="mailto:antvickl0r@web.de">AntVickl0r@web.de</a></p>
+							</div></li>
+						</ul>
+					</li-->
+				</ul>
+			</div><!-- /.navbar-collapse -->
+		</div><!-- /.container-fluid -->
+	</nav>
+	
+	<!-- Main jumbotron for a primary marketing message or call to action -->
+		<div id="jumbotron_home" class="jumbotron">
+			<div class="container">
+				<h1>Under construction</h1>
+				<p>This website is just a shell at the moment.</p>
+				<p><a id="close_jumbotron_home" class="btn btn-danger" href="#" role="button">Close</a></p>
+			</div>
+		</div>
+
+		<div class="container">
+			<!-- Example row of columns -->
+			<div class="row">
+				<div class="col-md-4">
+					<h2>GitHub</h2>
+					<p>You can visit my GitHub profile and have a look at my repositories or even contribute to them.</p>
+					<p><a class="btn btn-default" target="_blank" href="https://github.com/AntVickl0r" role="button">Open profile <span aria-hidden="true" class="glyphicon glyphicon-user"></span></a></p>
+				</div>
+				<div class="col-md-4">
+					<h2>PictureResize</h2>
+					<p>A small tool I wrote for my father, so he can easily resize Images for online auctions.</p>
+					<p><a class="btn btn-default" target="_blank" href="https://github.com/AntVickl0r/PictureResize" role="button">View project <span aria-hidden="true" class="glyphicon glyphicon-link"></span></a></p>
+					<p><a class="btn btn-primary" href="https://github.com/AntVickl0r/PictureResize/blob/master/executable/PictureResize_EN.exe?raw=true" role="button">Download executable <span aria-hidden="true" class="glyphicon glyphicon-download-alt"></span></a></p>
+			 </div>
+				<div class="col-md-4">
+					<h2>suck</h2>
+					<p>A simple commandline http downloader written in C# (mono)</p>
+					<p><a class="btn btn-default" target="_blank" href="https://github.com/AntVickl0r/suck" role="button">View project <span aria-hidden="true" class="glyphicon glyphicon-link"></span></a></p>
+					<p><a class="btn btn-primary" href="https://github.com/AntVickl0r/suck/blob/master/executable/suck.exe?raw=true" role="button">Download executable <span aria-hidden="true" class="glyphicon glyphicon-download-alt"></span></a></p>
+				</div>
+			</div>
+		<div class="well well-lg" style="margin:100px 0 100px 0;">
+			<div class="container">
+				<h2 id="about">About</h2>
+				<p>comming soon.</p>
+			</div>
+		</div>
+		<div class="well well-lg" style="margin:100px 0 1000px 0;">
+			<div class="container">
+				<h2 id="impressum">Impressum</h2>
+				<p style="font-weight:bold;">Tomorrow Graphics</p>
+				<p>GM Michael Klupsch</p>
+				<p>Walter-Kemper-Str. 2</br>
+				31553 Sachsenhagen</p>
+				<p style="font-weight:bold;">GERMANY</p>
+				<p><a href="mailto:antvickl0r@web.de">AntVickl0r@web.de</a></p>
+			</div>
+		</div>
+	</div>
+	
+
+		<!-- Binde alle kompilierten Plugins zusammen ein (wie hier unten) oder such dir einzelne Dateien nach Bedarf aus -->
+		<script src="js/bootstrap.min.js"></script>
 	</body>
 </html>
